@@ -306,7 +306,7 @@ def logout_view(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'dashboard.html', {})
+    return redirect(reverse('room:room_list'))
 
 @login_required
 def calender_view(request):
