@@ -216,7 +216,7 @@ class RoomJoinView(View):
                 "room": room_obj.room_id,
                 "exp": 1685141372
             }
-            domain = 'talk.gomeeting.org'
+            domain = JITSI_URL
             creator = room_obj.created_by.profile.user_uid
             token = jwt.encode(payload, "example_app_secret", algorithm='HS256', headers=headers).decode('utf-8')
             return render(request, self.template, locals())
@@ -284,7 +284,7 @@ class GuestJoinView(View):
                 "room": room_obj.room_id,
                 "exp": 1685141372
             }
-            domain = 'talk.gomeeting.org'
+            domain = JITSI_URL
             creator = room_obj.created_by.profile.user_uid
             token = jwt.encode(payload, "example_app_secret", algorithm='HS256', headers=headers).decode('utf-8')
             return render(request, self.template, locals())
