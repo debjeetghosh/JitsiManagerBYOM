@@ -143,5 +143,5 @@ STATICFILES_DIRS = [os.path.join(os.path.dirname(os.path.dirname(os.path.abspath
 
 JITSI_ISSUER = os.environ.get("JITSI_ISSUER", "my_app_client")
 JITSI_AUD = os.environ.get("JITSI_AUD", "my_server1")
-JITSI_URL = os.environ.get("JITSI_URL", "localhost:8443")
+JITSI_URL = os.environ.get("JITSI_URL", "byom2909.com")
 JITSI_PRIVATE_KEY = os.environ.get("JITSI_PRIVATE_KEY", "my_jitsi_app_secret")
