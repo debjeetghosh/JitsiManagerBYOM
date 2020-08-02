@@ -1,27 +1,74 @@
-<!-- Sidebar -->
-<div id="sidebar-wrapper" style="overflow: auto">
-    <ul class="sidebar-nav brand-clear">
+{% load staticfiles %}
+<a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+</a>
+<nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <img src="{% static 'img/logo-byonm.png' %}" class="img-fluid" width="100">
+        <div id="close-sidebar" class="d-xl-none">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+    <div class="sidebar-menu">
+    <ul>
         <li><a href="/" aria-hidden="true"></i> <i class="fa fa-home" aria-hidden="true"></i> Home </a></li>
-
-
         <br>
-        <li class="sidebar-title" style="margin-top: 0;">Meeting Management</li>
-        <li><a href="{% url 'room:room_list' %}"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>Meetings</a></li>
-
-        <br>
+        <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-database"></i>
+              <span>Meeting Management</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul><li><a href="{% url 'room:room_list' %}">Meetings</a></li></ul>
+            </div>
+          </li>
         {% if user.profile.user_type == 'admin' %}
-        <li class="sidebar-title" style="margin-top: 0;">User Management</li>
-        <li><a href="{% url 'restrictions:restriction_list' %}"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>Mange users</a></li>
-        <li><a href="{% url 'accounts:create_creator' %}"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>Create creator</a></li>
+            <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-users"></i>
+              <span>User Management</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li><a href="{% url 'restrictions:restriction_list' %}">Manage User</a></li>
+                <li><a href="{% url 'accounts:create_creator' %}">Create Creator</a></li>
+              </ul>
+            </div>
+          </li>
         {% endif %}
 
         {% if user.is_staff %}
-            <li class="sidebar-title" style="margin-top: 0;">Admin User Management</li>
-            <li><a href="{% url 'accounts:admin_list' %}"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>Mange admin</a></li>
+            <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-user-secret"></i>
+              <span>Admin User Management</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul><li><a href="{% url 'accounts:admin_list' %}">Manage Admin</a></li></ul>
+            </div>
+          </li>
         {% endif %}
+        <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-user-secret"></i>
+              <span>Admin</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li><a href="{% url 'accounts:own_profile_details' %}">My Profile</a></li>
+{#                <li><a href="#">setting</a></li>#}
+                <li><a href="{% url 'accounts:own_password_change' %}">change Password</a></li>
+                <hr/>
+                <li><a href="{% url 'accounts:logout' %}">logout</a></li>
+              </ul>
+            </div>
+          </li>
 
 
 
     </ul>
 </div>
+    </div>
+</nav>
 <!-- /#sidebar-wrapper -->

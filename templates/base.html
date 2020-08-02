@@ -9,12 +9,19 @@
     <title>
         {% block title %}NOS-UNE.net{% endblock %}
     </title>
-    {% include "includes/css.html" %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/priyo.css' %}?v=114">
     <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
 </head>
 <body>
-<div id="wrapper" class="sidebar">
-    {% include "includes/navbar.html" %}
+<div class="page-wrapper chiller-theme toggled">
 
     <!-- Sidebar -->
     {% include "includes/sidebar.html" %}
@@ -22,7 +29,8 @@
 
 
     <!-- Page Content -->
-    <div id="page-wrapper">
+    <main class="page-content">
+    <div class="container-fluid">
         {% if messages %}
             <div class="alert alert-danger alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -39,6 +47,7 @@
         {% endif %}
         {% block contents %}{% endblock %}
     </div>
+    </main>
     <!-- /#page-content-wrapper -->
 
 </div>

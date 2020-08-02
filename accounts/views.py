@@ -28,7 +28,7 @@ from utils.helpers import get_obj, split_name
 
 def login_view(request):
     form = LoginForm()
-    return render(request, "login.html", {"form": form})
+    return render(request, "login_updated.html", {"form": form})
 
 class EmailVerificationMixin(object):
     from_email = 'voipxmeet@voipxint.com'

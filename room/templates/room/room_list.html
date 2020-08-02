@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% block contents %}
-    <div>
-    <h3 class="pull-left">Meeting List</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Meeting List</h3>
+        </div>
 
-    <div class="pull-right">
-        <a href="{% url 'room:create_room' %}" class="btn btn-primary">Create a new meeting</a>
+        <div class="col-md-6 text-right">
+            <a href="{% url 'room:create_room' %}" class="btn btn-primary">Create a new meeting</a>
+        </div>
     </div>
-    <div class="clearfix"></div>
-    </div>
-    <div class="col-md-8">
-    <table class="table">
+    <hr/>
+    <table class="table table-bordered table-striped table-responsive">
         <tr>
             <th>Meeting Name</th>
             <th>Meeting Id</th>
@@ -59,10 +60,9 @@
             </tr>
         {% endfor %}
     </table>
-    </div>
     <div class="col-md-4">
-        <button id="authorize_button" class="btn btn-primary" style="display: none;">Add Google Calender</button> <button id="signout_button" class="btn btn-primary" style="display: none;">Remove Google Calender</button>
-        <button id="authorize_ms_button" class="btn btn-primary" style="display: none;" onclick="outlookSignIn()">Add Outlook Calender</button> <button id="signout_ms_button" class="btn btn-primary" style="display: none;" onclick="outlookSignOut()">Remove Outlook Calender</button>
+        <button id="authorize_button" class="btn btn-md btn-primary" style="display: none;">Add Google Calender</button> <button id="signout_button" class="btn btn-primary" style="display: none;">Remove Google Calender</button>
+        <button id="authorize_ms_button" class="btn btn-md btn-primary" style="display: none;" onclick="outlookSignIn()">Add Outlook Calender</button> <button id="signout_ms_button" class="btn btn-primary" style="display: none;" onclick="outlookSignOut()">Remove Outlook Calender</button>
         <div>
             <h5>Google calender events</h5>
             <div  id="content">
